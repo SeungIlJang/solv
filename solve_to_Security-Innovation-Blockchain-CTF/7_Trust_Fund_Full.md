@@ -7,9 +7,9 @@ pragma solidity 0.4.24;
 import "../CtfFramework.sol";
 import "../../node_modules/openzeppelin-solidity/contracts/math/SafeMath.sol";
 
-contract TrustFund is CtfFramework{
+contract TrustFund is CtfFramework{ //CtfFramework를 상속
 
-    using SafeMath for uint256;
+    using SafeMath for uint256; //uint256에 SafeMath 사용
 
     uint256 public allowancePerYear;
     uint256 public startDate;
