@@ -41,6 +41,8 @@ contract TrustFund is CtfFramework{ //CtfFramework를 상속
         이 경우 코드에 따르면 msg.sender에게 계속 이더를 보내게 되고, 
         가스가 부족해지거나 Fund에 잔고가 다 떨어졌다고 판단되면 더 이상 withdraw()를 호출하지 않고 정상 종료하여 트랜잭션을 성공시킬 수 있습니다. 
         360만 이더가 탈취된 DAO 해킹이 이 취약점이 공격된 사례
+        withdrewThisYear = true; 이 실행되기 전에 
+        withdraw() 가 재귀 호출함으로써 자신의 보유한 잔고보다 더 많은 잔고를 인출해 나갈수 있습니다.
         */
 
         if (msg.sender.call.value(allowancePerYear)()){
